@@ -1,4 +1,4 @@
-
+// STUDENT MANAGEMENT SYSTEM - SMS: A simple student management system using C
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
