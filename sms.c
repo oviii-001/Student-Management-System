@@ -311,8 +311,7 @@ void registerStudent()
     printf("=== Register Student ===\n");
     printf("\n");
     printf("Enter student name: ");
-    while ((getchar()) != '\n')
-        ; // Flush leftover newline characters
+    while ((getchar()) != '\n'); // Flush leftover newline characters
     fgets(students[totalStudents].name, sizeof(students[totalStudents].name), stdin);
     students[totalStudents].name[strcspn(students[totalStudents].name, "\n")] = '\0'; // Remove newline character
 
