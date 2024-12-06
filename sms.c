@@ -238,7 +238,7 @@ void adminPanel()
         system("clear || cls");
         printf("\n");
         printf("\n");
-        printf("=== Admin Panel ===");
+        printf("=== Administrative Panel ===");
         printf("\n");
         printf("\n");
         printf("1. Register Student\n");
