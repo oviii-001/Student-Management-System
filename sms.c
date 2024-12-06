@@ -64,6 +64,7 @@ void loggingOut();
 void saveStudentsToFile();
 void loadStudentsFromFile();
 void exitProgram();
+void loadingScreen();
 
 // Function to get the terminal width
 int getTerminalWidth()
@@ -128,19 +129,33 @@ void centerSlowPrint(const char *text, int delay)
 void welcomePage()
 {
     system("clear || cls");
+
+    printf("\033[1;31m");  // Set text color to red
+    printf("\t\t_____/\\\\\\\\\\\\\\\\\\\\\\___        __/\\\\\\\\____________/\\\\\\\\_        _____/\\\\\\\\\\\\\\\\\\\\\\___     \n");
+    printf("\t\t ___/\\\\\\/////////\\\\\\_        _\\/\\\\\\\\\\\\________/\\\\\\\\\\\\_        ___/\\\\\\/////////\\\\\\_       \n");
+    printf("\t\t  __\\//\\\\\\______\\///__        _\\/\\\\\\//\\\\\\____/\\\\\\//\\\\\\_        __\\//\\\\\\______\\///__      \n");
+    printf("\t\t   ___\\////\\\\\\_________        _\\/\\\\\\\\///\\\\\\/\\\\\\/_\\/\\\\\\_        ___\\////\\\\\\_________     \n");
+    printf("\t\t    ______\\////\\\\\\______        _\\/\\\\\\__\\///\\\\\\/___\\/\\\\\\_        ______\\////\\\\\\______    \n");
+    printf("\t\t     _________\\////\\\\\\___        _\\/\\\\\\____\\///_____\\/\\\\\\_        _________\\////\\\\\\___   \n");
+    printf("\t\t      __/\\\\\\______\\//\\\\\\__        _\\/\\\\\\_____________\\/\\\\\\_        __/\\\\\\______\\//\\\\\\__  \n");
+    printf("\t\t       _\\///\\\\\\\\\\\\\\\\\\\\\\/___        _\\/\\\\\\_____________\\/\\\\\\_        _\\///\\\\\\\\\\\\\\\\\\\\\\/___ \n");
+    printf("\t\t        ___\\///////////_____        _\\///______________\\///__        ___\\///////////_____\n");
+    printf("\033[0m");  // Reset text color to default
+
     centerPrint("\n");
     centerPrint("\n");
-    centerSlowPrint("\033[1;91m\033[47m==== Welcome to STUDENT MANAGEMENT SYSTEM! ====\033[0m", 10000);
+    centerSlowPrint("\033[34m\033[48;5;153m\t\t==== Welcome to STUDENT MANAGEMENT SYSTEM! ====\033[0m", 10000);
     centerPrint("\n");
-    centerSlowPrint("\033[1;91m\033[40m     _oveee_\033[0m", 10000);
-    centerSlowPrint("\033[1;91m\033[40mby   _jakia_\033[0m", 10000);
-    centerSlowPrint("\033[1;91m\033[40m     _israt_\033[0m", 10000);
-    centerPrint("\n");
-    centerPrint("\n");
+    centerSlowPrint("\033[1;32m\033[40m\t\t     _oveee_\033[0m", 10000);
+    centerSlowPrint("\033[1;32m\033[40m\t\tby   _jakia_\033[0m", 10000);
+    centerSlowPrint("\033[1;32m\033[40m\t\t     _israt_\033[0m", 10000);
     centerPrint("\n");
     centerPrint("\n");
-    centerSlowPrint("\033[32mPress any key to continue...\033[0m", 10000);
+    centerPrint("\n");
+    centerPrint("\n");
+    centerSlowPrint("\033[36m\tPress any key to continue...\033[0m", 10000);
     getchar();  // Wait for user input
+    loadingScreen();
     mainMenu(); // Call main menu after the welcome page
 }
 
@@ -899,6 +914,63 @@ void exitProgram(){
         printf("\n");
         system("clear || cls");
         exit(0);
+}
+
+void loadingScreen() {
+
+    system("clear || cls");
+
+
+    int total = 50;  // Total number of steps in the progress bar
+    int i;
+
+    // Get terminal dimensions (width and height)
+    const char *cols = getenv("COLUMNS");
+    const char *rows = getenv("LINES");
+    int terminal_width = cols ? atoi(cols) : 80;  // Default to 80 columns if not set
+    int terminal_height = rows ? atoi(rows) : 24;  // Default to 24 rows if not set
+
+    // Calculate the padding to center the loading bar horizontally
+    int progress_bar_width = total + 2;  // Width of the progress bar with spaces
+    int horizontal_padding = (terminal_width - progress_bar_width) / 2;
+
+    // Calculate the padding to center the loading screen vertically
+    int vertical_padding = (terminal_height - 3) / 2;  // 3 lines for message, bar, and done
+
+    // Print vertical padding
+    for (i = 0; i < vertical_padding; i++) {
+        printf("\n");
+    }
+
+    // Print horizontal padding and the message
+    for (i = 0; i < horizontal_padding; i++) {
+        printf(" ");
+    }
+    printf("\033[1;32mPlease wait while loading...\033[0m\n");
+
+    // Print horizontal padding for the progress bar
+    for (i = 0; i < horizontal_padding; i++) {
+        printf(" ");
+    }
+    printf("\033[0;32m");  // Start of the loading bar with green color
+
+    for (i = 0; i < total; i++) {
+        // Print a progress bar with '#' for each step
+        printf("\033[42m \033[0m");  // Green background for each step
+        fflush(stdout);  // Ensure the output is printed immediately
+        usleep(100000);  // Sleep for 0.1 second to create animation effect
+    }
+
+    // Print the remaining part of the progress bar and finish
+    // printf("\n");
+
+    // Print the final message
+    for (i = 0; i < horizontal_padding; i++) {
+        printf("");
+    }
+    printf("\033[0;32m Done!\033[0m\n");
+
+    sleep(1);
 }
 
 int main()
