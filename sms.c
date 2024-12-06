@@ -130,16 +130,16 @@ void welcomePage()
     system("clear || cls");
     centerPrint("\n");
     centerPrint("\n");
-    centerSlowPrint("==== Welcome to STUDENT MANAGEMENT SYSTEM! ====", 10000);
+    centerSlowPrint("\033[1;91m\033[47m==== Welcome to STUDENT MANAGEMENT SYSTEM! ====\033[0m", 10000);
     centerPrint("\n");
-    centerSlowPrint("     _oveee_", 10000);
-    centerSlowPrint("by   _jakia_", 10000);
-    centerSlowPrint("     _israt_", 10000);
-    centerPrint("\n");
-    centerPrint("\n");
+    centerSlowPrint("\033[1;91m\033[40m     _oveee_\033[0m", 10000);
+    centerSlowPrint("\033[1;91m\033[40mby   _jakia_\033[0m", 10000);
+    centerSlowPrint("\033[1;91m\033[40m     _israt_\033[0m", 10000);
     centerPrint("\n");
     centerPrint("\n");
-    centerSlowPrint("Press any key to continue...", 10000);
+    centerPrint("\n");
+    centerPrint("\n");
+    centerSlowPrint("\033[32mPress any key to continue...\033[0m", 10000);
     getchar();  // Wait for user input
     mainMenu(); // Call main menu after the welcome page
 }
