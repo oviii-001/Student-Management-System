@@ -710,6 +710,7 @@ void studentPanel()
     printf("\n");
     printf("Invalid credentials!");
     goBackMenu();
+    studentPanel();
 }
 
 void viewStudentInfo(int studentIndex)
