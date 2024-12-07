@@ -676,6 +676,17 @@ void studentPanel()
     {
         if (strcmp(students[i].email, email) == 0 && strcmp(students[i].id, id) == 0)
         {
+            printf("\n");
+            printf("\n");
+            const char *message = "\t\t\t\t\t\033[1;32mLogged in successfully!\033[0m\n";
+            for (int i = 0; message[i] != '\0'; i++)
+            {
+                printf("%c", message[i]);
+                fflush(stdout); // Ensure each character is printed immediately
+                usleep(10000);  // Delay for 10 milliseconds
+            }
+            sleep(2); // Pause for 1 second before redirecting to adminPanel
+            
             int choice;
             do
             {
