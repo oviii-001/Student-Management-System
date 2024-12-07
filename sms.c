@@ -409,9 +409,9 @@ void updateGrades()
     printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Update Grades ===\033[0m\n");
     printf("\n");
     printf("\t\t\t\t\tEnter student ID: ");
-    printf("\n");
-    printf("\n");
     scanf("%s", studentID);
+    printf("\n");
+    printf("\n");
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
