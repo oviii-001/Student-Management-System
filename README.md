@@ -1,4 +1,6 @@
-STUDENT MANAGEMENT SYSTEM - SMS: A simple console based Student Management System using C language.
+**STUDENT MANAGEMENT SYSTEM - SMS: A simple console based Student Management System using C language.**
+
+
 
 ![Screenshot 2024-12-07 213231](https://github.com/user-attachments/assets/2623f552-cd29-4b4d-95cc-55bf7953a79d)
 
