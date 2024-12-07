@@ -239,9 +239,10 @@ void adminLogin()
         printf("\n");
         printf("\n");
         printf("\n");
-        printf("Invalid credentials. Try again.");
+        printf("Invalid credentials!");
+        sleep(1);
         goBackMenu();
-        adminLogin();
+        mainMenu();
     }
 }
 
@@ -723,8 +724,9 @@ void studentPanel()
     printf("\n");
     printf("\n");
     printf("Invalid credentials!");
+    sleep(1);
     goBackMenu();
-    studentPanel();
+    mainMenu();
 }
 
 void viewStudentInfo(int studentIndex)
