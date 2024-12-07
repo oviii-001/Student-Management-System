@@ -165,17 +165,17 @@ void mainMenu()
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== Student Management System ===\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Student Management System ===\033[0m\n");
     printf("\n");
-    printf("1. Administrative Panel\n");
+    printf("\t\t\t\t\t   1. Administrative Panel\n");
     printf("\n");
-    printf("2. Student Panel\n");
+    printf("\t\t\t\t\t   2. Student Panel\n");
     printf("\n");
-    printf("3. Exit\n");
+    printf("\t\t\t\t\t   3. Exit\n");
     printf("\n");
     printf("\n");
     printf("\n");
-    printf("Choose an option: ");
+    printf("\t\t\t\t\t\033[36mChoose an option:\033[0m ");
     scanf("%d", &choice);
     getchar(); // Clear newline buffer
 
@@ -191,7 +191,7 @@ void mainMenu()
         exitProgram();
         break;
     default:
-        printf("Invalid choice. Try again.");
+        printf("\t\t\t\t\t\033[1;31mInvalid choice. Try again.\033[0m");
         mainMenu();
     }
 }
@@ -200,7 +200,7 @@ void goBackMenu()
 {
     printf("\n");
     printf("\n");
-    printf("\nPress any key to go back...");
+    printf("\n\t\t\t\t\t\033[36mPress any key to go back...\033[0m");
     getchar();
     getchar();
 }
@@ -211,20 +211,20 @@ void adminLogin()
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== Admin Login ===\n");
+    printf("\t\t\t\t\t\t\033[34m\033[48;5;153m=== Admin Login ===\033[0m\n");
     printf("\n");
-    printf("[Enter default admin username and password to login....]\n");
+    printf("\t\t\t\t[Enter default admin username and password to login....]\n");
     printf("\n");
-    printf("Username: ");
+    printf("\t\t\t\t\t   Username: ");
     scanf("%s", username);
     printf("\n");
-    printf("Password: ");
+    printf("\t\t\t\t\t   Password: ");
     scanf("%s", password);
 
     if (strcmp(username, "admin") == 0 && strcmp(password, "admin123") == 0)
     {
         printf("\n");
-        const char *message = "Logged in successfully!\n";
+        const char *message = "\t\t\t\t\t\033[1;32mLogged in successfully!\033[0m\n";
         for (int i = 0; message[i] != '\0'; i++)
         {
             printf("%c", message[i]);
@@ -239,7 +239,7 @@ void adminLogin()
         printf("\n");
         printf("\n");
         printf("\n");
-        printf("Invalid credentials!");
+        printf("\t\t\t\t\t\033[1;31mInvalid credentials!\033[0m");
         sleep(1);
         goBackMenu();
         mainMenu();
@@ -254,21 +254,21 @@ void adminPanel()
         system("clear || cls");
         printf("\n");
         printf("\n");
-        printf("=== Administrative Panel ===");
+        printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Administrative Panel ===\033[0m");
         printf("\n");
         printf("\n");
-        printf("1. Register Student\n");
-        printf("2. Enroll in Course\n");
-        printf("3. Update Grades\n");
-        printf("4. Mark Attendance\n");
-        printf("5. Generate Reports\n");
-        printf("6. View GPA of specific student\n");
-        printf("7. View GPA of all students\n");
-        printf("8. View Students\n");
-        printf("9. Log out\n");
+        printf("\t\t\t\t\t   1. Register Student\n");
+        printf("\t\t\t\t\t   2. Enroll in Course\n");
+        printf("\t\t\t\t\t   3. Update Grades\n");
+        printf("\t\t\t\t\t   4. Mark Attendance\n");
+        printf("\t\t\t\t\t   5. Generate Reports\n");
+        printf("\t\t\t\t\t   6. View GPA of specific student\n");
+        printf("\t\t\t\t\t   7. View GPA of all students\n");
+        printf("\t\t\t\t\t   8. View Students\n");
+        printf("\t\t\t\t\t   9. Log out\n");
         printf("\n");
         printf("\n");
-        printf("Choose an option: ");
+        printf("\t\t\t\t\t\033[36mChoose an option:\033[0m ");
         scanf("%d", &choice);
 
         switch (choice)
@@ -305,7 +305,7 @@ void adminPanel()
             printf("\n");
             printf("\n");
             printf("\n");
-            printf("Invalid choice!! Try again.");
+            printf("\t\t\t\t\t\033[1;31mInvalid choice! Try again.\033[0m");
             goBackMenu();
         }
     } while (choice != 9);
@@ -317,33 +317,33 @@ void registerStudent()
     {
         printf("\n");
         printf("\n");
-        printf("Student limit reached!");
+        printf("\t\t\t\t\t\033[1;31mStudent limit reached!\033[0m");
         goBackMenu();
         return;
     }
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== Register Student ===\n");
+    printf("\t\t\t\t\t\t\033[34m\033[48;5;153m=== Register Student ===\033[0m\n");
     printf("\n");
-    printf("Enter student name: ");
+    printf("\t\t\t\t\t Enter student name: ");
     while ((getchar()) != '\n'); // Flush leftover newline characters
     fgets(students[totalStudents].name, sizeof(students[totalStudents].name), stdin);
     students[totalStudents].name[strcspn(students[totalStudents].name, "\n")] = '\0'; // Remove newline character
 
-    printf("\nEnter student email: ");
+    printf("\n\t\t\t\t\t Enter student email: ");
     fgets(students[totalStudents].email, sizeof(students[totalStudents].email), stdin);
     students[totalStudents].email[strcspn(students[totalStudents].email, "\n")] = '\0'; // Remove newline character
 
-    printf("\nEnter student address: ");
+    printf("\n\t\t\t\t\t Enter student address: ");
     fgets(students[totalStudents].address, sizeof(students[totalStudents].address), stdin);
     students[totalStudents].address[strcspn(students[totalStudents].address, "\n")] = '\0'; // Remove newline character
 
-    printf("\nEnter student ID: ");
+    printf("\n\t\t\t\t\t Enter student ID: ");
     fgets(students[totalStudents].id, sizeof(students[totalStudents].id), stdin);
     students[totalStudents].id[strcspn(students[totalStudents].id, "\n")] = '\0'; // Remove newline character
 
-    printf("\nEnter student department : ");
+    printf("\n\t\t\t\t\t Enter student department : ");
     fgets(students[totalStudents].department, sizeof(students[totalStudents].department), stdin);
     students[totalStudents].department[strcspn(students[totalStudents].department, "\n")] = '\0'; // Remove newline character
 
@@ -354,7 +354,7 @@ void registerStudent()
     totalStudents++;
     printf("\n");
     printf("\n");
-    slowPrint("Student registered successfully!", 10000);
+    slowPrint("\t\t\t\t\t\033[1;32mStudent registered successfully!\033[0m", 10000);
     saveStudentsToFile();
     goBackMenu();
 }
@@ -365,21 +365,21 @@ void enrollCourse()
     char studentID[10];
     printf("\n");
     printf("\n");
-    printf("=== Enroll in Course ===\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Enroll in Course ===\033[0m\n");
     printf("\n");
-    printf("Enter student ID: ");
+    printf("\t\t\t\t\t Enter student ID: ");
     scanf("%s", studentID);
     printf("\n");
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
         {
-            printf("Enter course code to enroll: ");
+            printf("\t\t\t\t\t Enter course code to enroll: ");
             char courseName[50];
             scanf("%s", courseName);
             printf("\n");
             int courseCredits;
-            printf("Enter course credits: ");
+            printf("\t\t\t\t\t Enter course credits: ");
             scanf("%d", &courseCredits);
             strcpy(courses[students[i].enrolledCourses].name, courseName);
             courses[students[i].enrolledCourses].credits = courseCredits;
@@ -388,7 +388,7 @@ void enrollCourse()
 
             printf("\n");
             printf("\n");
-            printf("Student enrolled in course %s successfully! Total credit is %d.", courseName, students[i].totalCredits);
+            printf("\t\t\t\t\t\033[1;32mStudent enrolled in course \033[1;33m%s\033[0m \033[1;32msuccessfully! Total credit is \033[1;33m%d\033[0m\033[1;32m.\033[0m", courseName, students[i].totalCredits);
             saveStudentsToFile();
             goBackMenu();
             return;
@@ -396,7 +396,7 @@ void enrollCourse()
     }
     printf("\n");
     printf("\n");
-    printf("Student not found!");
+    printf("\t\t\t\t\t\033[1;31mStudent not found!\033[0m");
     goBackMenu();
 }
 
@@ -406,19 +406,21 @@ void updateGrades()
     char studentID[10];
     printf("\n");
     printf("\n");
-    printf("=== Update Grades ===");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Update Grades ===\033[0m\n");
     printf("\n");
-    printf("Enter student ID: ");
+    printf("\t\t\t\t\tEnter student ID: ");
+    printf("\n");
+    printf("\n");
     scanf("%s", studentID);
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
         {
-            printf("Enter new GPA: ");
+            printf("\t\t\t\t\tEnter new GPA: ");
             scanf("%f", &students[i].gpa);
             printf("\n");
             printf("\n");
-            slowPrint("GPA updated successfully!", 10000);
+            slowPrint("\t\t\t\t\t\033[1;32mGPA updated successfully!\033[0m", 10000);
             saveStudentsToFile();
             goBackMenu();
             return;
@@ -426,7 +428,7 @@ void updateGrades()
     }
     printf("\n");
     printf("\n");
-    printf("Student not found!");
+    printf("\t\t\t\t\t\033[1;31mStudent not found!\033[0m");
     goBackMenu();
 }
 
@@ -436,22 +438,25 @@ void viewGPA()
     char studentID[10];
     printf("\n");
     printf("\n");
-    printf("=== View GPA of specific student ===");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== View GPA of specific student ===\033[0m\n");
     printf("\n");
-    printf("Enter student ID: ");
+    printf("\t\t\t\t\t   Enter student ID: ");
+    printf("\n");
+    printf("\n");
+    printf("\n");
     scanf("%s", studentID);
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
         {
-            printf("GPA of %s: %.2f\n", students[i].name, students[i].gpa);
+            printf("\t\t\t\t\t   GPA of %s: %.2f\n", students[i].name, students[i].gpa);
             goBackMenu();
             return;
         }
     }
     printf("\n");
     printf("\n");
-    printf("Student not found!");
+    printf("\t\t\t\t\t\033[1;31mStudent not found!\033[0m");
     goBackMenu();
 }
 
@@ -461,20 +466,20 @@ void markAttendance()
     char studentID[10];
     printf("\n");
     printf("\n");
-    printf("=== Mark Attendance ===");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Mark Attendance ===\033[0m\n");
     printf("\n");
-    printf("Enter student ID: ");
+    printf("\t\t\t\t\t   Enter student ID: ");
     scanf("%s", studentID);
     printf("\n");
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
         {
-            printf("Enter attendance (number of days): ");
+            printf("\t\t\t\t\t   Enter attendance (number of days): ");
             scanf("%d", &students[i].attendance);
             printf("\n");
             printf("\n");
-            slowPrint("Attendance updated successfully!", 10000);
+            slowPrint("\t\t\t\t\t\033[1;32mAttendance updated successfully!\033[0m", 10000);
             saveStudentsToFile();
             goBackMenu();
             return;
@@ -482,7 +487,7 @@ void markAttendance()
     }
     printf("\n");
     printf("\n");
-    printf("Student not found!");
+    printf("\t\t\t\t\t\033[1;31mStudent not found!\033[0m");
     goBackMenu();
 }
 
@@ -492,24 +497,24 @@ void generateReports()
     char studentID[10];
     printf("\n");
     printf("\n");
-    printf("=== Generate Reports ===\n");
+    printf("\t\t\t\t\t\t\033[34m\033[48;5;153m=== Generate Reports ===\033[0m\n");
     printf("\n");
-    printf("Enter student ID: ");
+    printf("\t\t\t\t\tEnter student ID: ");
     scanf("%s", studentID);
     printf("\n");
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
         {
-            printf("=================================\n");
-            printf("         STUDENT REPORT          \n");
-            printf("=================================\n");
-            printf("Name             : %s\n", students[i].name);
-            printf("ID               : %s\n", students[i].id);
-            printf("Email            : %s\n", students[i].email);
-            printf("Address          : %s\n", students[i].address);
-            printf("Department       : %s\n", students[i].department);
-            printf("Enrolled Courses : ");
+            printf("\t\t\t\t\t======================================\n");
+            printf("\t\t\t\t\t              STUDENT REPORT          \n");
+            printf("\t\t\t\t\t======================================\n");
+            printf("\t\t\t\t\tName             : %s\n", students[i].name);
+            printf("\t\t\t\t\tID               : %s\n", students[i].id);
+            printf("\t\t\t\t\tEmail            : %s\n", students[i].email);
+            printf("\t\t\t\t\tAddress          : %s\n", students[i].address);
+            printf("\t\t\t\t\tDepartment       : %s\n", students[i].department);
+            printf("\t\t\t\t\tEnrolled Courses : ");
             for (int j = 0; j < students[i].enrolledCourses; j++)
             {
                 printf("%s", courses[j].name);
@@ -519,10 +524,10 @@ void generateReports()
                 }
             }
             printf("\n");
-            printf("Total Credits    : %d\n", students[i].totalCredits);
-            printf("GPA              : %.2f\n", students[i].gpa);
-            printf("Attendance       : %d days\n", students[i].attendance);
-            printf("=================================\n");
+            printf("\t\t\t\t\tTotal Credits    : %d\n", students[i].totalCredits);
+            printf("\t\t\t\t\tGPA              : %.2f\n", students[i].gpa);
+            printf("\t\t\t\t\tAttendance       : %d days\n", students[i].attendance);
+            printf("\t\t\t\t\t======================================\n");
 
             goBackMenu();
             return;
@@ -531,7 +536,7 @@ void generateReports()
 
     printf("\n");
     printf("\n");
-    printf("Student not found!");
+    printf("\t\t\t\t\t\033[1;31mStudent not found!\033[0m");
     goBackMenu();
 }
 
@@ -541,16 +546,16 @@ void sortStudents()
     int choice;
     printf("\n");
     printf("\n");
-    printf("=== View GPA of all students ===");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== View GPA of all students ===\033[0m");
     printf("\n");
     printf("\n");
-    printf("1. Sort by GPA");
+    printf("\t\t\t\t\t   1. Sort by GPA");
     printf("\n");
-    printf("2. Sort by Name");
+    printf("\t\t\t\t\t   2. Sort by Name");
     printf("\n");
     printf("\n");
     printf("\n");
-    printf("Choose an option: ");
+    printf("\t\t\t\t\t\033[36mChoose an option:\033[0m ");
     scanf("%d", &choice);
 
     if (choice == 1)
@@ -565,7 +570,7 @@ void sortStudents()
     {
         printf("\n");
         printf("\n");
-        printf("Invalid choice!");
+        printf("\t\t\t\t\t\033[1;31mInvalid choice!\033[0m");
     }
     goBackMenu();
 }
@@ -586,13 +591,13 @@ void sortByGPA()
     }
     printf("\n");
     printf("\n");
-    printf("Students sorted by GPA:");
+    printf("\t\t\t\t\tStudents sorted by GPA:");
     printf("\n");
-    printf("%-30s %-10s\n", "Name", "GPA");
-    printf("---------------------------------\n");
+    printf("\t\t\t\t\t%-30s %-10s\n", "Name", "GPA");
+    printf("\t\t\t\t\t-----------------------------------\n");
     for (int i = 0; i < totalStudents; i++)
     {
-        printf("%-30s %.2f\n", students[i].name, students[i].gpa);
+        printf("\t\t\t\t\t%-30s %.2f\n", students[i].name, students[i].gpa);
     }
 }
 
@@ -612,13 +617,13 @@ void sortByName()
     }
     printf("\n");
     printf("\n");
-    printf("Students sorted by Name:");
+    printf("\t\t\t\t\tStudents sorted by Name:");
     printf("\n");
-    printf("%-30s %-10s\n", "Name", "GPA");
-    printf("---------------------------------\n");
+    printf("\t\t\t\t\t%-30s %-10s\n", "Name", "GPA");
+    printf("\t\t\t\t\t-----------------------------------\n");
     for (int i = 0; i < totalStudents; i++)
     {
-        printf("%-30s %.2f\n", students[i].name, students[i].gpa);
+        printf("\t\t\t\t\t%-30s %.2f\n", students[i].name, students[i].gpa);
     }
 }
 
@@ -626,7 +631,7 @@ void viewStudents()
 {
     system("clear || cls");
     printf("\n");
-    printf("=== View Students ===\n\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== View Students ===\033[0m\n\n");
     printf("List of Students:\n");
     printf("\n");
 
@@ -659,12 +664,12 @@ void studentPanel()
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== Student Panel ===\n");
+    printf("\t\t\t\t\t\t\033[34m\033[48;5;153m=== Student Panel ===\033[0m\n");
     printf("\n");
-    printf("Enter email: ");
+    printf("\t\t\t\t\tEnter email: ");
     scanf("%s", email);
     printf("\n");
-    printf("Enter ID: ");
+    printf("\t\t\t\t\tEnter ID: ");
     scanf("%s", id);
 
     for (int i = 0; i < totalStudents; i++)
@@ -677,21 +682,21 @@ void studentPanel()
                 system("clear || cls");
                 printf("\n");
                 printf("\n");
-                printf("=== Student Panel ===");
+                printf("\t\t\t\t\t  \033[34m\033[48;5;153m=== Student Panel ===\033[0m");
                 printf("\n");
                 printf("\n");
-                printf("1. View Your Information");
+                printf("\t\t\t\t\t1. View Your Information");
                 printf("\n");
-                printf("2. View Your GPA");
+                printf("\t\t\t\t\t2. View Your GPA");
                 printf("\n");
-                printf("3. View Your Attendance");
+                printf("\t\t\t\t\t3. View Your Attendance");
                 printf("\n");
-                printf("4. Generate Your Reports");
+                printf("\t\t\t\t\t4. Generate Your Reports");
                 printf("\n");
-                printf("5. Log Out");
+                printf("\t\t\t\t\t5. Log Out");
                 printf("\n");
                 printf("\n");
-                printf("Choose an option: ");
+                printf("\t\t\t\t\t\033[36mChoose an option:\033[0m ");
                 scanf("%d", &choice);
 
                 switch (choice)
@@ -715,7 +720,7 @@ void studentPanel()
                 default:
                     printf("\n");
                     printf("\n");
-                    printf("Invalid choice. Try again.");
+                    printf("\t\t\t\t\t\033[1;31mInvalid choice! Try again.\033[0m");
                     goBackMenu();
                 }
             } while (choice != 5);
@@ -723,7 +728,7 @@ void studentPanel()
     }
     printf("\n");
     printf("\n");
-    printf("Invalid credentials!");
+    printf("\t\t\t\t\t\033[1;31mInvalid credentials!\033[0m");
     sleep(1);
     goBackMenu();
     mainMenu();
@@ -734,14 +739,14 @@ void viewStudentInfo(int studentIndex)
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== Your Student Information ===\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Your Student Information ===\033[0m\n");
     printf("\n");
-    printf("Name             : %s\n", students[studentIndex].name);
-    printf("Email            : %s\n", students[studentIndex].email);
-    printf("Address          : %s\n", students[studentIndex].address);
-    printf("ID               : %s\n", students[studentIndex].id);
-    printf("Department       : %s\n", students[studentIndex].department);
-    printf("Enrolled Courses : ");
+    printf("\t\t\t\t\tName             : %s\n", students[studentIndex].name);
+    printf("\t\t\t\t\tEmail            : %s\n", students[studentIndex].email);
+    printf("\t\t\t\t\tAddress          : %s\n", students[studentIndex].address);
+    printf("\t\t\t\t\tID               : %s\n", students[studentIndex].id);
+    printf("\t\t\t\t\tDepartment       : %s\n", students[studentIndex].department);
+    printf("\t\t\t\t\tEnrolled Courses : ");
     for (int i = 0; i < students[studentIndex].enrolledCourses; i++)
     {
         printf("%s", courses[i].name);
@@ -751,7 +756,7 @@ void viewStudentInfo(int studentIndex)
         }
     }
     printf("\n");
-    printf("Total Credits    : %d\n", students[studentIndex].totalCredits);
+    printf("\t\t\t\t\tTotal Credits    : %d\n", students[studentIndex].totalCredits);
     goBackMenu();
 }
 
@@ -760,9 +765,9 @@ void viewStudentGPA(int studentIndex)
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== View Your GPA ===\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== View Your GPA ===\033[0m\n");
     printf("\n");
-    printf("Your GPA: %.2f\n", students[studentIndex].gpa);
+    printf("\t\t\t\t\t  Your GPA: %.2f\n", students[studentIndex].gpa);
     goBackMenu();
 }
 
@@ -771,9 +776,9 @@ void viewStudentAttendance(int studentIndex)
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=== View Your Attendance ===\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== View Your Attendance ===\033[0m\n");
     printf("\n");
-    printf("Your Attendance: %d days\n", students[studentIndex].attendance);
+    printf("\t\t\t\t\t Your Attendance: %d days\n", students[studentIndex].attendance);
     goBackMenu();
 }
 
@@ -782,15 +787,17 @@ void generateStudentReports(int studentIndex)
     system("clear || cls");
     printf("\n");
     printf("\n");
-    printf("=================================\n");
-    printf("         STUDENT REPORT          \n");
-    printf("=================================\n");
-    printf("Name             : %s\n", students[studentIndex].name);
-    printf("Email            : %s\n", students[studentIndex].email);
-    printf("Address          : %s\n", students[studentIndex].address);
-    printf("Id               : %s\n", students[studentIndex].id);
-    printf("Department       : %s\n", students[studentIndex].department);
-    printf("Enrolled courses : ");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Generate Your Report ===\033[0m\n");
+    printf("\n");
+    printf("\t\t\t\t\t======================================\n");
+    printf("\t\t\t\t\t              STUDENT REPORT          \n");
+    printf("\t\t\t\t\t======================================\n");
+    printf("\t\t\t\t\tName             : %s\n", students[studentIndex].name);
+    printf("\t\t\t\t\tEmail            : %s\n", students[studentIndex].email);
+    printf("\t\t\t\t\tAddress          : %s\n", students[studentIndex].address);
+    printf("\t\t\t\t\tId               : %s\n", students[studentIndex].id);
+    printf("\t\t\t\t\tDepartment       : %s\n", students[studentIndex].department);
+    printf("\t\t\t\t\tEnrolled courses : ");
     for (int j = 0; j < students[studentIndex].enrolledCourses; j++)
     {
         printf("%s", courses[j].name);
@@ -800,24 +807,27 @@ void generateStudentReports(int studentIndex)
         }
     }
     printf("\n");
-    printf("Total credits    : %d\n", students[studentIndex].totalCredits);
-    printf("GPA              : %.2f\n", students[studentIndex].gpa);
-    printf("Attendance       : %d days\n", students[studentIndex].attendance);
+    printf("\t\t\t\t\tTotal credits    : %d\n", students[studentIndex].totalCredits);
+    printf("\t\t\t\t\tGPA              : %.2f\n", students[studentIndex].gpa);
+    printf("\t\t\t\t\tAttendance       : %d days\n", students[studentIndex].attendance);
+    printf("\t\t\t\t\t======================================\n");
     goBackMenu();
 }
 
 void loggingOut(){
     system("clear || cls");
-    printf("=== Student Management System ===\n");
     printf("\n");
     printf("\n");
-    slowPrint("Logging out...............", 200000);
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Student Management System ===\033[0m\n");
+    printf("\n");
+    printf("\n");
+    slowPrint("\t\t\t\t\t\033[1;31mLogging out...............\033[0m", 200000);
 }
 
 void saveStudentsToFile() {
     FILE *file = fopen("students.txt", "w");
     if (file == NULL) {
-        printf("\nError: Could not open file for writing!\n");
+        printf("\n\t\t\t\t\t\033[1;31mError: Could not open file for writing!\033[0m\n");
         return;
     }
 
@@ -910,9 +920,9 @@ void exitProgram(){
         printf("\n");
         printf("\n");
         printf("\n");
-        centerSlowPrint("Exiting the program....\n", 200000);
+        centerSlowPrint("\033[1;31mExiting the program....\033[0m\n", 200000);
         printf("\n");
-        centerSlowPrint("Thank you for using our system!\n", 200000);
+        centerSlowPrint("\033[1;33mThank you for using our system!\033[0m\n", 200000);
         printf("\n");
         system("clear || cls");
         exit(0);
