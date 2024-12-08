@@ -1,4 +1,4 @@
-4
+2
 Jakia Sultana
 jakiasultana@gmail.com
 1685
@@ -12,7 +12,7 @@ SE121
 3
 SE222
 1
-SE121
+SE123
 3
 Ismam Ovi
 ismamhasanovi@gmail.com
@@ -27,27 +27,5 @@ SE121
 3
 SE222
 1
-SE121
+SE123
 3
-Israt Jahan Poly
-isratjahan@gmail.com
-1692
-Savar, Dhaka
-SWE
-3.700000
-220
-2
-4
-SE121
-3
-SE222
-1
-Jakia Sultana
-jakiasultana@gmail.com
-1685
-Kushtia
-Software Engineering
-0.000000
-0
-0
-0

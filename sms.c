@@ -65,6 +65,7 @@ void saveStudentsToFile();
 void loadStudentsFromFile();
 void exitProgram();
 void loadingScreen();
+void deleteStudent();
 
 // Function to get the terminal width
 int getTerminalWidth()
@@ -265,7 +266,8 @@ void adminPanel()
         printf("\t\t\t\t\t   6. View GPA of specific student\n");
         printf("\t\t\t\t\t   7. View GPA of all students\n");
         printf("\t\t\t\t\t   8. View Students\n");
-        printf("\t\t\t\t\t   9. Log out\n");
+        printf("\t\t\t\t\t   9. Delete Student\n");
+        printf("\t\t\t\t\t   10. Log out\n");
         printf("\n");
         printf("\n");
         printf("\t\t\t\t\t\033[36mChoose an option:\033[0m ");
@@ -298,6 +300,9 @@ void adminPanel()
             viewStudents();
             break;
         case 9:
+            deleteStudent();
+            break;
+        case 10:
             loggingOut();
             mainMenu();
             break;
@@ -308,7 +313,7 @@ void adminPanel()
             printf("\t\t\t\t\t\033[1;31mInvalid choice! Try again.\033[0m");
             goBackMenu();
         }
-    } while (choice != 9);
+    } while (choice != 10);
 }
 
 void registerStudent()
@@ -655,6 +660,38 @@ void viewStudents()
                students[i].attendance);
     }
 
+    goBackMenu();
+}
+
+void deleteStudent() {
+    system("clear || cls");
+    char studentID[10];
+    printf("\n");
+    printf("\n");
+    printf("\t\t\t\t\t\033[34m\033[48;5;153m=== Delete Student ===\033[0m\n");
+    printf("\n");
+    printf("\t\t\t\t\tEnter student ID to delete: ");
+    scanf("%s", studentID);
+    printf("\n");
+
+    for (int i = 0; i < totalStudents; i++) {
+        if (strcmp(students[i].id, studentID) == 0) {
+            // Student found, shift all subsequent students up
+            for (int j = i; j < totalStudents - 1; j++) {
+                students[j] = students[j + 1]; // Shift student data
+            }
+            totalStudents--; // Decrease the total student count
+            printf("\n");
+            printf("\n");
+            slowPrint("\t\t\t\t\t\033[1;32mStudent deleted successfully!\033[0m", 10000);
+            saveStudentsToFile(); // Save the updated list to file
+            goBackMenu();
+            return;
+        }
+    }
+    printf("\n");
+    printf("\n");
+    printf("\t\t\t\t\t\033[1;31mStudent not found!\033[0m");
     goBackMenu();
 }
 
