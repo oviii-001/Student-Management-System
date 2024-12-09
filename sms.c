@@ -446,10 +446,10 @@ void viewGPA()
     printf("\t\t\t\t\t\033[34m\033[48;5;153m=== View GPA of specific student ===\033[0m\n");
     printf("\n");
     printf("\t\t\t\t\t   Enter student ID: ");
-    printf("\n");
-    printf("\n");
-    printf("\n");
     scanf("%s", studentID);
+    printf("\n");
+    printf("\n");
+    printf("\n");
     for (int i = 0; i < totalStudents; i++)
     {
         if (strcmp(students[i].id, studentID) == 0)
